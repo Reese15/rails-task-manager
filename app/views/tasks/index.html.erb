@@ -1,0 +1,21 @@
+<br>
+<div class="container">
+  <h2>My personal tasks</h2>
+  <br>
+  <ul class="list-group">
+    <% @tasks.each do |task| %>
+    <li class="list-group-item d-flex p-2">
+      <input type="checkbox" name="Completed" disabled <%= task.completed ? 'checked' : '' %> class='mr-3'>
+          <%= link_to task.title, task_path(task) %>
+         <button type="button" class="btn btn-warning ml-auto">
+         <%= link_to "Delete", delete_path(task), method: "delete"%>
+         </button>
+      <% end %>
+    </li>
+  </ul>
+  <br>
+  <button type="button" class="btn btn-light">
+    <%= link_to "New task", tasks_new_path%>
+  </button>
+</div>
+
